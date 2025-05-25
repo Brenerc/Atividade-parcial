@@ -1,1 +1,45 @@
 
+package calculadora;
+
+public class bmiCalculadora {
+    private double pesoKg;
+    private double pesoLb;
+    private double alturaM;
+    private double alturaIn;
+
+    public double calculatorImcMetric() {
+        return pesoKg / (alturaM * alturaM);
+    }
+
+    public double calculatorImcImperial() {
+        return (pesoLb / (alturaIn * alturaIn)) * 703;
+    }
+
+    public String classificarImc(double imc) {
+        if (imc < 18.5) {
+            return "Abaixo do peso";
+        } else if (imc < 24.9) {
+            return "Peso normal";
+        } else if (imc < 29.9) {
+            return "Sobrepeso";
+        } else {
+            return "Obesidade";
+        }
+    }
+
+    public void setPesoKg(double pesoKg) {
+        this.pesoKg = pesoKg;
+    }
+
+    public void setPesoLb(double pesoLb) {
+        this.pesoLb = pesoLb;
+    }
+
+    public void setAlturaM(double alturaM) {
+        this.alturaM = alturaM;
+    }
+
+    public void setAlturaIn(double alturaIn) {
+        this.alturaIn = alturaIn;
+    }
+}
