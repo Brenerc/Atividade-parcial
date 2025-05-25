@@ -1,4 +1,4 @@
-# Atividade-parcial
+# Atividade-parcial Slide 7 e 8
 
 # Gerenciador de Alunos
 
