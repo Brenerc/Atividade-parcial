@@ -1,1 +1,25 @@
 
+package calculadora;
+
+public class Main {
+    public static void main(String[] args) {
+        EntradaUsuario entrada = new EntradaUsuario();
+        bmiCalculadora calculadora = new bmiCalculadora();
+        
+        String sistema = entrada.obterSistemaIMC();
+        
+        if (sistema.equalsIgnoreCase("Metrico")) {
+            calculadora.setPesoKg(entrada.obterPeso(sistema));
+            calculadora.setAlturaM(entrada.obterAltura(sistema));
+            double imc = calculadora.calculatorImcMetric();
+            System.out.printf("Seu IMC é: %.2f%n", imc);
+            System.out.println("Categoria: " + calculadora.classificarImc(imc));
+        } else {
+            calculadora.setPesoLb(entrada.obterPeso(sistema));
+            calculadora.setAlturaIn(entrada.obterAltura(sistema));
+            double imc = calculadora.calculatorImcImperial();
+            System.out.printf("Seu IMC é: %.2f%n", imc);
+            System.out.println("Categoria: " + calculadora.classificarImc(imc));
+        }
+    }
+}
