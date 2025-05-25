@@ -1,1 +1,56 @@
 
+package calculadora;
+
+import java.util.Scanner;
+
+public class EntradaUsuario {
+    private Scanner scanner;
+
+    public EntradaUsuario() {
+        scanner = new Scanner(System.in);
+    }
+
+    public String obterSistemaIMC() {
+        String sistema;
+        while (true) {
+            System.out.print("Escolha o sistema (Imperial/Metrico): ");
+            sistema = scanner.nextLine().trim();
+            if (sistema.equalsIgnoreCase("Imperial") || sistema.equalsIgnoreCase("Metrico")) {
+                return sistema;
+            }
+            System.out.println("Sistema inválido. Tente novamente.");
+        }
+    }
+
+    public double obterPeso(String sistemaIMC) {
+        while (true) {
+            try {
+                if (sistemaIMC.equalsIgnoreCase("Metrico")) {
+                    System.out.print("Digite o peso em kg: ");
+                    return Double.parseDouble(scanner.nextLine());
+                } else {
+                    System.out.print("Digite o peso em libras: ");
+                    return Double.parseDouble(scanner.nextLine());
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Valor inválido. Tente novamente.");
+            }
+        }
+    }
+
+    public double obterAltura(String sistemaIMC) {
+        while (true) {
+            try {
+                if (sistemaIMC.equalsIgnoreCase("Metrico")) {
+                    System.out.print("Digite a altura em metros: ");
+                    return Double.parseDouble(scanner.nextLine());
+                } else {
+                    System.out.print("Digite a altura em polegadas: ");
+                    return Double.parseDouble(scanner.nextLine());
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Valor inválido. Tente novamente.");
+            }
+        }
+    }
+}
